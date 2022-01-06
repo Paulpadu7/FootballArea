@@ -10,23 +10,23 @@ class MatchDBManager(context: Context) {
     private val db: SQLiteDatabase by lazy { dbHelper.writableDatabase }
 
     fun insert(values: ContentValues): Long {
-        return db.insert(MatchContract.MatchEntry.DB_TABLE, "", values)
+        return db.insert(MatchEntry.DB_TABLE, "", values)
     }
 
     fun queryAll(): Cursor {
-        return db.rawQuery("select * from ${MatchContract.MatchEntry.DB_TABLE}", null)
+        return db.rawQuery("select * from ${MatchEntry.DB_TABLE}", null)
     }
 
     fun queryOne(id: Int): Cursor {
-        return db.rawQuery("select * from ${MatchContract.MatchEntry.DB_TABLE} where ${MatchContract.MatchEntry.COLUMN_ID} = $id", null)
+        return db.rawQuery("select * from ${MatchEntry.DB_TABLE} where ${MatchEntry.COLUMN_ID} = $id", null)
     }
 
     fun delete(selection: String, selectionArgs: Array<String>): Int {
-        return db.delete(MatchContract.MatchEntry.DB_TABLE, selection, selectionArgs)
+        return db.delete(MatchEntry.DB_TABLE, selection, selectionArgs)
     }
 
     fun update(values: ContentValues, selection: String, selectionArgs: Array<String>): Int {
-        return db.update(MatchContract.MatchEntry.DB_TABLE, values, selection, selectionArgs)
+        return db.update(MatchEntry.DB_TABLE, values, selection, selectionArgs)
     }
 
     fun close() {

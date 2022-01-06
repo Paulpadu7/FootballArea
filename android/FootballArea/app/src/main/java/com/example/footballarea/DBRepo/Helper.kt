@@ -5,39 +5,40 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 private const val SQL_CREATE_RESERVATION_ENTRIES =
-    """ CREATE TABLE IF NOT EXISTS ${ReservationContract.ReservationEntry.DB_TABLE} (
-            ${ReservationContract.ReservationEntry.COLUMN_ID} INTEGER PRIMARY KEY,
-            ${ReservationContract.ReservationEntry.COLUMN_ID_USER} INTEGER,
-            ${ReservationContract.ReservationEntry.COLUMN_ID_MATCH} INTEGER,
-            ${ReservationContract.ReservationEntry.COLUMN_TICKETS} INTEGER,
-            ${ReservationContract.ReservationEntry.COLUMN_RESERVATION_DATE} TEXT,
-            ${ReservationContract.ReservationEntry.COLUMN_PRICE} INTEGER);
+    """ CREATE TABLE IF NOT EXISTS ${ReservationEntry.DB_TABLE} (
+            ${ReservationEntry.COLUMN_ID} INTEGER PRIMARY KEY,
+            ${ReservationEntry.COLUMN_ID_USER} INTEGER,
+            ${ReservationEntry.COLUMN_ID_MATCH} INTEGER,
+            ${ReservationEntry.COLUMN_TICKETS} INTEGER,
+            ${ReservationEntry.COLUMN_RESERVATION_DATE} TEXT,
+            ${ReservationEntry.COLUMN_PRICE} INTEGER,
+            ${ReservationEntry.COLUMN_STATUS} TEXT);
     """
 
 private const val SQL_CREATE_MATCH_ENTRIES =
-    """ CREATE TABLE IF NOT EXISTS ${MatchContract.MatchEntry.DB_TABLE} (
-            ${MatchContract.MatchEntry.COLUMN_ID} INTEGER PRIMARY KEY,
-            ${MatchContract.MatchEntry.COLUMN_HOME_TEAM} TEXT,
-            ${MatchContract.MatchEntry.COLUMN_AWAY_TEAM} TEXT,
-            ${MatchContract.MatchEntry.COLUMN_LOCATION} TEXT,
-            ${MatchContract.MatchEntry.COLUMN_IMAGE} INTEGER,
-            ${MatchContract.MatchEntry.COLUMN_DATE} TEXT,
-            ${MatchContract.MatchEntry.COLUMN_TICKETS} INTEGER,
-            ${MatchContract.MatchEntry.COLUMN_PRICE} INTEGER);
+    """ CREATE TABLE IF NOT EXISTS ${MatchEntry.DB_TABLE} (
+            ${MatchEntry.COLUMN_ID} INTEGER PRIMARY KEY,
+            ${MatchEntry.COLUMN_HOME_TEAM} TEXT,
+            ${MatchEntry.COLUMN_AWAY_TEAM} TEXT,
+            ${MatchEntry.COLUMN_LOCATION} TEXT,
+            ${MatchEntry.COLUMN_IMAGE} INTEGER,
+            ${MatchEntry.COLUMN_DATE} TEXT,
+            ${MatchEntry.COLUMN_TICKETS} INTEGER,
+            ${MatchEntry.COLUMN_PRICE} INTEGER);
     """
 
 private const val SQL_DELETE_RESERVATION_ENTRIES =
-    "DROP TABLE IF EXISTS ${ReservationContract.ReservationEntry.DB_TABLE}"
+    "DROP TABLE IF EXISTS ${ReservationEntry.DB_TABLE}"
 
 private const val SQL_DELETE_MATCH_ENTRIES =
-    "DROP TABLE IF EXISTS ${MatchContract.MatchEntry.DB_TABLE}"
+    "DROP TABLE IF EXISTS ${MatchEntry.DB_TABLE}"
 
 class DatabaseHelper(context: Context) :
     SQLiteOpenHelper(
         context,
-        ReservationContract.DB_NAME,
+        FootballAreaContract.DB_NAME,
         null,
-        ReservationContract.DB_VERSION
+        FootballAreaContract.DB_VERSION
     )
 {
 

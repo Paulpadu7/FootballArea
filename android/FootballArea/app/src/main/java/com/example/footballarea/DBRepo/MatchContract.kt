@@ -2,11 +2,7 @@ package com.example.footballarea.DBRepo
 
 import android.provider.BaseColumns
 
-object MatchContract {
-    const val DB_NAME = "FootballArea"
-    const val DB_VERSION = 1
-
-    object MatchEntry : BaseColumns{
+object MatchEntry : BaseColumns{
         const val DB_TABLE = "Match"
         const val COLUMN_ID = "Id"
         const val COLUMN_HOME_TEAM = "HomeTeam"
@@ -16,5 +12,4 @@ object MatchContract {
         const val COLUMN_DATE = "Date"
         const val COLUMN_TICKETS = "No_of_tickets"
         const val COLUMN_PRICE = "Price"
-    }
 }
