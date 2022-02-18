@@ -3,6 +3,7 @@ package com.example.footballarea.DBRepo
 import android.content.ContentValues
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -71,6 +72,7 @@ class MainPageViewModel: ViewModel() {
 
     fun fetchReservationsFromNetwork(context: Context){
         scopeIO.launch {
+            Log.e("asd","okkk")
             var listReservation = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 getReservationsFromDB(context)
             } else {
@@ -103,7 +105,7 @@ class MainPageViewModel: ViewModel() {
         return listReservations
     }
 
-    private suspend fun createReservationsWithPendingStatus(context: Context, reservationList:ArrayList<Reservation>){
+    private fun createReservationsWithPendingStatus(context: Context, reservationList:ArrayList<Reservation>){
 
         for (reservation:Reservation in reservationList)
         {

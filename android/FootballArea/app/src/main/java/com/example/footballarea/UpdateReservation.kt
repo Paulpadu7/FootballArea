@@ -158,7 +158,7 @@ class UpdateReservation : Fragment() {
             val JSON = MediaType.parse("application/json; charset=utf-8")
             val body = RequestBody.create(JSON, jsonObject.toString())
             val request: Request = Request.Builder()
-                .url("ws://192.168.100.20:8080/reservation/update")
+                .url("ws://172.30.117.195:8080/reservation/update")
                 .post(body)
                 .build()
 

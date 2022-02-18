@@ -21,6 +21,8 @@ import com.example.footballarea.DBRepo.MyReservationsViewModel
 import com.example.footballarea.DBRepo.ReservationDBManager
 import com.example.footballarea.Domain.Match
 import com.example.footballarea.Domain.Reservation
+import com.example.footballarea.databinding.FragmentCreateReservationBinding
+import com.example.footballarea.databinding.FragmentMyReservationsBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -28,6 +30,7 @@ class MyReservations : Fragment() {
     private var listView: ListView? =null
     private var myMatchAdapters: MyMatchesAdapter? =null
     private val viewModel: MyReservationsViewModel by viewModels()
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
